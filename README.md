@@ -1,2 +1,17 @@
-# common-tools-extractor
-Common Tools Extractor
+# Common Tools Extractor
+在 Linux 系统运维过程中，经常会用到一些工具。但在生产环境上，经常是没有权限进行安装的。
+
+网络上有很多应用是提前构建好的，并且没有其他库依赖，如：使用 Go 或者 Rust 编写的应用。
+
+另外，还有一些软件以 rpm 安装包的形式提供。由于生产环境的 Linux 没有权限进行安装，但可以将这些工具从 rpm 包中提取出来。
+
+这个工具就是把这些工具提取出来，并整理到一起，便于使用。
+
+
+
+### 使用
+
+```bash
+bash standalone_tool_extractor.sh '用于存放提取结果的目录'
+```
+
