@@ -1,86 +1,373 @@
 
-# gost
-# https://github.com/ginuerzh/gost
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='GO Simple Tunnel'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/ginuerzh/gost/releases/latest/download/gost-linux-amd64-2.11.5.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=gz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]=''
-TOOL_BIN_FILE["$idx"]=gost
+
+# 7-Zip
+TOOL_NAME+=('7-Zip')
+TOOL_HOMEPAGE+=('https://www.7-zip.org/')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://www.7-zip.org/a/7z2301-linux-x64.tar.xz')
+TOOL_ARCHIVE_PROCESSOR+=(tarxz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('7zzs')
+TOOL_BIN_FILE+=(7zz)
+
+# bandwhich
+TOOL_NAME+=('bandwhich')
+TOOL_HOMEPAGE+=('https://github.com/imsnif/bandwhich')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/imsnif/bandwhich/releases/latest/download/bandwhich-v0.22.2-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('bandwhich')
+TOOL_BIN_FILE+=('bandwhich')
+
+# bat
+TOOL_NAME+=('bat')
+TOOL_HOMEPAGE+=('https://github.com/sharkdp/bat')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/sharkdp/bat/releases/latest/download/bat-v0.24.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('bat-v0.24.0-x86_64-unknown-linux-musl/bat')
+TOOL_BIN_FILE+=('bat')
+
+# Brook
+TOOL_NAME+=('Brook')
+TOOL_HOMEPAGE+=('https://github.com/txthinking/brook')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64')
+TOOL_ARCHIVE_PROCESSOR+=(bin_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('')
+TOOL_BIN_FILE+=(brook)
+
+# Broot
+TOOL_NAME+=('Broot')
+TOOL_HOMEPAGE+=('https://github.com/Canop/broot')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/Canop/broot/releases/latest/download/broot_1.38.0.zip')
+TOOL_ARCHIVE_PROCESSOR+=(zipfile_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('x86_64-unknown-linux-musl/broot')
+TOOL_BIN_FILE+=('broot')
+
+# btop
+TOOL_NAME+=('btop')
+TOOL_HOMEPAGE+=('https://github.com/aristocratos/btop')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/aristocratos/btop/releases/latest/download/btop-x86_64-linux-musl.tbz')
+TOOL_ARCHIVE_PROCESSOR+=(tarbz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('./btop/bin/btop')
+TOOL_BIN_FILE+=('btop')
+
+# uutils coreutils
+TOOL_NAME+=('uutils coreutils')
+TOOL_HOMEPAGE+=('https://github.com/uutils/coreutils')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/uutils/coreutils/releases/latest/download/coreutils-0.0.26-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('coreutils-0.0.26-x86_64-unknown-linux-musl/coreutils')
+TOOL_BIN_FILE+=('coreutils')
+
+# Curlie
+TOOL_NAME+=('Curlie')
+TOOL_HOMEPAGE+=('https://github.com/rs/curlie')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/rs/curlie/releases/latest/download/curlie_1.7.2_linux_amd64.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('curlie')
+TOOL_BIN_FILE+=('curlie')
 
 # croc
-# https://github.com/schollz/croc
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='croc'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/schollz/croc/releases/latest/download/croc_9.6.6_Linux-64bit.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='croc'
-TOOL_BIN_FILE["$idx"]=croc
+TOOL_NAME+=('croc')
+TOOL_HOMEPAGE+=('https://github.com/schollz/croc')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/schollz/croc/releases/latest/download/croc_v9.6.15_Linux-64bit.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('croc')
+TOOL_BIN_FILE+=(croc)
 
+# delta
+TOOL_NAME+=('delta')
+TOOL_HOMEPAGE+=('https://github.com/dandavison/delta')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/dandavison/delta/releases/latest/download/delta-0.17.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('delta-0.17.0-x86_64-unknown-linux-musl/delta')
+TOOL_BIN_FILE+=('delta')
 
+# Dive
+TOOL_NAME+=('Dive')
+TOOL_HOMEPAGE+=('https://github.com/wagoodman/dive')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/wagoodman/dive/releases/latest/download/dive_0.12.0_linux_amd64.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('dive')
+TOOL_BIN_FILE+=(dive)
 
-# docker-compose
-# 参考 https://docs.docker.com/compose/install/
-# compose_url="https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)"
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='Docker Compose'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/docker/compose/releases/latest/download/docker-compose-Linux-x86_64'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=bin_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]=''
-TOOL_BIN_FILE["$idx"]=docker-compose
+# Docker Compose
+TOOL_NAME+=('Docker Compose')
+TOOL_HOMEPAGE+=('https://docs.docker.com/compose/install/')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/docker/compose/releases/latest/download/docker-compose-Linux-x86_64')
+TOOL_ARCHIVE_PROCESSOR+=(bin_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('')
+TOOL_BIN_FILE+=(docker-compose)
 
+# duf
+TOOL_NAME+=('duf')
+TOOL_HOMEPAGE+=('https://github.com/muesli/duf')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/muesli/duf/releases/latest/download/duf_0.8.1_linux_x86_64.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('duf')
+TOOL_BIN_FILE+=('duf')
 
-# lazydocker
-# https://github.com/jesseduffield/lazydocker
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='lazydocker'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/jesseduffield/lazydocker/releases/latest/download/lazydocker_0.23.1_Linux_x86_64.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='lazydocker'
-TOOL_BIN_FILE["$idx"]=lazydocker
+# Dust
+TOOL_NAME+=('Dust')
+TOOL_HOMEPAGE+=('https://github.com/bootandy/dust')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/bootandy/dust/releases/latest/download/dust-v1.0.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('dust-v1.0.0-x86_64-unknown-linux-musl/dust')
+TOOL_BIN_FILE+=(dust)
 
+# exa
+TOOL_NAME+=('exa')
+TOOL_HOMEPAGE+=('https://github.com/ogham/exa')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-musl-v0.10.1.zip')
+TOOL_ARCHIVE_PROCESSOR+=(zipfile_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('bin/exa')
+TOOL_BIN_FILE+=('exa')
 
-# brook
-# https://github.com/txthinking/brook
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='Brook'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=bin_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]=''
-TOOL_BIN_FILE["$idx"]=brook
-
-
-# dive
-# https://github.com/wagoodman/dive
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='Dive'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/wagoodman/dive/releases/latest/download/dive_0.11.0_linux_amd64.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='dive'
-TOOL_BIN_FILE["$idx"]=dive
-
-
-# grv
-# https://github.com/rgburke/grv
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='GRV'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/rgburke/grv/releases/latest/download/grv_v0.3.2_linux64'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=bin_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]=''
-TOOL_BIN_FILE["$idx"]=grv
-
+# fd
+TOOL_NAME+=('fd')
+TOOL_HOMEPAGE+=('https://github.com/sharkdp/fd')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/sharkdp/fd/releases/latest/download/fd-v10.1.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('fd-v10.1.0-x86_64-unknown-linux-musl/fd')
+TOOL_BIN_FILE+=(fd)
 
 # fzf
-# https://github.com/junegunn/fzf
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='fzf'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/junegunn/fzf/releases/latest/download/fzf-0.44.1-linux_amd64.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='fzf'
-TOOL_BIN_FILE["$idx"]=fzf
+TOOL_NAME+=('fzf')
+TOOL_HOMEPAGE+=('https://github.com/junegunn/fzf')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/junegunn/fzf/releases/latest/download/fzf-0.52.1-linux_amd64.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('fzf')
+TOOL_BIN_FILE+=(fzf)
+
+# fx
+TOOL_NAME+=('fx')
+TOOL_HOMEPAGE+=('https://github.com/antonmedv/fx')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/antonmedv/fx/releases/latest/download/fx_linux_amd64')
+TOOL_ARCHIVE_PROCESSOR+=(bin_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('')
+TOOL_BIN_FILE+=(fx)
+
+# GitUI
+TOOL_NAME+=('GitUI')
+TOOL_HOMEPAGE+=('https://github.com/extrawurst/gitui')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/extrawurst/gitui/releases/latest/download/gitui-linux-x86_64.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('./gitui')
+TOOL_BIN_FILE+=(gitui)
+
+# GO Simple Tunnel
+TOOL_NAME+=('GO Simple Tunnel')
+TOOL_HOMEPAGE+=('https://github.com/ginuerzh/gost')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/ginuerzh/gost/releases/latest/download/gost-linux-amd64-2.11.5.gz')
+TOOL_ARCHIVE_PROCESSOR+=(gz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('')
+TOOL_BIN_FILE+=(gost)
+
+# GoTTY
+TOOL_NAME+=('GoTTY')
+TOOL_HOMEPAGE+=('https://github.com/sorenisanerd/gotty')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/sorenisanerd/gotty/releases/latest/download/gotty_v1.5.0_linux_amd64.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('./gotty')
+TOOL_BIN_FILE+=(gotty)
+
+# GRV
+TOOL_NAME+=('GRV')
+TOOL_HOMEPAGE+=('https://github.com/rgburke/grv')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/rgburke/grv/releases/latest/download/grv_v0.3.2_linux64')
+TOOL_ARCHIVE_PROCESSOR+=(bin_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('')
+TOOL_BIN_FILE+=(grv)
+
+# hexyl
+TOOL_NAME+=('hexyl')
+TOOL_HOMEPAGE+=('https://github.com/sharkdp/hexyl')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/sharkdp/hexyl/releases/latest/download/hexyl-v0.14.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('hexyl-v0.14.0-x86_64-unknown-linux-musl/hexyl')
+TOOL_BIN_FILE+=(hexyl)
+
+# lazydocker
+TOOL_NAME+=('lazydocker')
+TOOL_HOMEPAGE+=('https://github.com/jesseduffield/lazydocker')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/jesseduffield/lazydocker/releases/latest/download/lazydocker_0.23.1_Linux_x86_64.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('lazydocker')
+TOOL_BIN_FILE+=(lazydocker)
+
+# LF
+TOOL_NAME+=('LF')
+TOOL_HOMEPAGE+=('https://github.com/gokcehan/lf')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('lf')
+TOOL_BIN_FILE+=(lf)
+
+# lnav
+TOOL_NAME+=('lnav')
+TOOL_HOMEPAGE+=('https://github.com/tstack/lnav')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/tstack/lnav/releases/latest/download/lnav-0.12.2-linux-musl-x86_64.zip')
+TOOL_ARCHIVE_PROCESSOR+=(zipfile_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('lnav-0.12.2/lnav')
+TOOL_BIN_FILE+=(lnav)
+
+# McFly
+TOOL_NAME+=('McFly')
+TOOL_HOMEPAGE+=('https://github.com/cantino/mcfly')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/cantino/mcfly/releases/latest/download/mcfly-v0.8.6-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('mcfly')
+TOOL_BIN_FILE+=(mcfly)
+
+# Ncdu
+TOOL_NAME+=('Ncdu')
+TOOL_HOMEPAGE+=('https://dev.yorhel.nl/ncdu')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://dev.yorhel.nl/download/ncdu-2.3-linux-x86_64.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('ncdu')
+TOOL_BIN_FILE+=(ncdu)
+
+# procs
+TOOL_NAME+=('procs')
+TOOL_HOMEPAGE+=('https://github.com/dalance/procs')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/dalance/procs/releases/latest/download/procs-v0.14.5-x86_64-linux.zip')
+TOOL_ARCHIVE_PROCESSOR+=(zip_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('procs')
+TOOL_BIN_FILE+=(procs)
+
+# ripgrep
+TOOL_NAME+=('ripgrep')
+TOOL_HOMEPAGE+=('https://github.com/BurntSushi/ripgrep')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/BurntSushi/ripgrep/releases/latest/download/ripgrep-14.1.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('ripgrep-14.1.0-x86_64-unknown-linux-musl/rg')
+TOOL_BIN_FILE+=('rg')
+
+# Starship
+TOOL_NAME+=('Starship')
+TOOL_HOMEPAGE+=('https://github.com/starship/starship')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('starship')
+TOOL_BIN_FILE+=(starship)
+
+# toml-cli
+TOOL_NAME+=('toml-cli')
+TOOL_HOMEPAGE+=('https://github.com/gnprice/toml-cli')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/gnprice/toml-cli/releases/latest/download/toml-0.2.3-x86_64-linux.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('toml-0.2.3-x86_64-linux/toml')
+TOOL_BIN_FILE+=(toml)
+
+# WebSocat
+TOOL_NAME+=('WebSocat')
+TOOL_HOMEPAGE+=('https://github.com/vi/websocat')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/vi/websocat/releases/latest/download/websocat_max.x86_64-unknown-linux-musl')
+TOOL_ARCHIVE_PROCESSOR+=(bin_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('')
+TOOL_BIN_FILE+=(websocat)
+
+# yq
+TOOL_NAME+=('yq')
+TOOL_HOMEPAGE+=('https://github.com/mikefarah/yq')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('./yq_linux_amd64')
+TOOL_BIN_FILE+=(yq)
+
+# zellij
+TOOL_NAME+=('zellij')
+TOOL_HOMEPAGE+=('https://github.com/zellij-org/zellij')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('zellij')
+TOOL_BIN_FILE+=(zellij)
+
+# zoxide
+TOOL_NAME+=('zoxide')
+TOOL_HOMEPAGE+=('https://github.com/ajeetdsouza/zoxide')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN=('')
+TOOL_DOWNLOAD_URL+=('https://github.com/ajeetdsouza/zoxide/releases/latest/download/zoxide-0.9.4-x86_64-unknown-linux-musl.tar.gz')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('zoxide')
+TOOL_BIN_FILE+=(zoxide)
+
+# Function: get_github_query_lastest_release_download_api_url
+# Description: 根据工具所在 GitHub 首页得到用于获取最新发布版本信息的 API 的 URL
+# Parameters:
+#   $1 - 工具所在 GitHub 首页
+# Returns: 用于查询的 API 的 URL
+# Example: get_github_query_lastest_release_download_api_url 'https://github.com/ginuerzh/gost'
+get_github_query_lastest_release_download_api_url () {
+    # 仓库所在首页
+    local homepage_url=$1
+    local owner_repo
+    # 生成查询 URL
+    owner_repo=$(gsed -nr 's/.*github.com\/(\w*\/\w*).*/\1/p' <<< "$homepage_url")
+    echo "https://api.github.com/repos/${owner_repo}/releases/latest"
+}
+
+# Function: get_download_url
+# Description: 通过 API 获取最新发布内容的 JSON，并提取其中下载的 URL
+# Parameters:
+#   $1 - 用于查询的 API 的 URL
+# Returns: 软件包 URL
+# Example: get_download_url 'https://api.github.com/repos/ginuerzh/gost/releases/latest'
+get_download_url () {
+    local api_url=$1
+    curl -fsS "$api_url" | jq -r '.assets[] | .browser_download_url'
+}
+
+# count=${#TOOL_NAME[@]}
+# for ((i=0;i<count;i++)); do
+#     if [[ "${TOOL_DOWNLOAD_URL[i]}" = *github* ]]; then
+#         isgh='y'
+#     else
+#         isgh="n - ${TOOL_DOWNLOAD_URL[i]}"
+#     fi
+#     # echo "$i - ${TOOL_NAME[i]} $isgh"
+#     # echo "${TOOL_HOMEPAGE[i]}" | gsed -nr 's/.*github.com\/(\w*\/\w*).*/\1/p'
+#     api_url=$(get_github_api_url "${TOOL_HOMEPAGE[i]}")
+#     echo "$api_url"
+#     curl -sS "$api_url" | jq -r '.assets[] | .browser_download_url'
+#     echo
+#     echo
+# done
 
 
-# webdav
+# webdav 已经不再鼓励使用，但还能用
 # https://github.com/hacdias/webdav
 # idx=${#TOOL_NAME[@]}
 # TOOL_NAME["$idx"]='WebDAV'
@@ -95,249 +382,6 @@ TOOL_BIN_FILE["$idx"]=fzf
 
 
 
-# lf
-# https://github.com/gokcehan/lf
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='LF'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='lf'
-TOOL_BIN_FILE["$idx"]='lf'
-
-
-# yq
-# https://github.com/mikefarah/yq
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='yq'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='./yq_linux_amd64'
-TOOL_BIN_FILE["$idx"]='yq'
-
-
-# duf
-# https://github.com/muesli/duf
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='duf'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/muesli/duf/releases/latest/download/duf_0.8.1_linux_x86_64.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='duf'
-TOOL_BIN_FILE["$idx"]='duf'
-
-
-# procs
-# https://github.com/dalance/procs
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='procs'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/dalance/procs/releases/latest/download/procs-v0.14.4-x86_64-linux.zip'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=zip_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='procs'
-TOOL_BIN_FILE["$idx"]='procs'
-
-
-# curlie
-# https://github.com/rs/curlie
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='Curlie'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/rs/curlie/releases/latest/download/curlie_1.7.2_linux_amd64.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='curlie'
-TOOL_BIN_FILE["$idx"]='curlie'
-
-
-# delta
-# https://github.com/dandavison/delta
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='delta'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/dandavison/delta/releases/latest/download/delta-0.16.5-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='delta-0.16.5-x86_64-unknown-linux-musl/delta'
-TOOL_BIN_FILE["$idx"]='delta'
-
-
-
-
-# btop
-# https://github.com/aristocratos/btop
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='btop'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/aristocratos/btop/releases/latest/download/btop-x86_64-linux-musl.tbz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=tarbz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='./btop/bin/btop'
-TOOL_BIN_FILE["$idx"]='btop'
-
-# ripgrep
-# https://github.com/BurntSushi/ripgrep
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='ripgrep'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/BurntSushi/ripgrep/releases/latest/download/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='ripgrep-13.0.0-x86_64-unknown-linux-musl/rg'
-TOOL_BIN_FILE["$idx"]='rg'
-
-# bat
-# https://github.com/sharkdp/bat
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='bat'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/sharkdp/bat/releases/latest/download/bat-v0.24.0-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='bat-v0.24.0-x86_64-unknown-linux-musl/bat'
-TOOL_BIN_FILE["$idx"]='bat'
-
-# hexyl
-# https://github.com/sharkdp/hexyl
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='hexyl'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/sharkdp/hexyl/releases/latest/download/hexyl-v0.13.1-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='hexyl-v0.13.1-x86_64-unknown-linux-musl/hexyl'
-TOOL_BIN_FILE["$idx"]='hexyl'
-
-# fd
-# https://github.com/sharkdp/fd
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='fd'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/sharkdp/fd/releases/latest/download/fd-v8.7.1-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='fd-v8.7.1-x86_64-unknown-linux-musl/fd'
-TOOL_BIN_FILE["$idx"]='fd'
-
-# exa
-# https://github.com/ogham/exa
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='exa'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-musl-v0.10.1.zip'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=zipfile_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='bin/exa'
-TOOL_BIN_FILE["$idx"]='exa'
-
-# broot
-# https://github.com/Canop/broot
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='Broot'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/Canop/broot/releases/latest/download/broot_1.29.0.zip'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=zipfile_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='x86_64-unknown-linux-musl/broot'
-TOOL_BIN_FILE["$idx"]='broot'
-
-# bandwhich
-# https://github.com/imsnif/bandwhich
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='bandwhich'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/imsnif/bandwhich/releases/latest/download/bandwhich-v0.21.1-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='bandwhich'
-TOOL_BIN_FILE["$idx"]='bandwhich'
-
-
-# coreutils
-# https://github.com/uutils/coreutils
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='uutils coreutils'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/uutils/coreutils/releases/latest/download/coreutils-0.0.23-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='coreutils-0.0.23-x86_64-unknown-linux-musl/coreutils'
-TOOL_BIN_FILE["$idx"]='coreutils'
-
-
-# zoxide
-# https://github.com/ajeetdsouza/zoxide
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='zoxide'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/ajeetdsouza/zoxide/releases/latest/download/zoxide-0.9.2-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='zoxide'
-TOOL_BIN_FILE["$idx"]='zoxide'
-
-# gitui
-# https://github.com/extrawurst/gitui
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='GitUI'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/extrawurst/gitui/releases/latest/download/gitui-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='./gitui'
-TOOL_BIN_FILE["$idx"]='gitui'
-
-# fx
-# https://github.com/antonmedv/fx
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='fx'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/antonmedv/fx/releases/latest/download/fx_linux_amd64'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=bin_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]=''
-TOOL_BIN_FILE["$idx"]='fx'
-
-# starship
-# https://github.com/starship/starship
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='Starship'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='starship'
-TOOL_BIN_FILE["$idx"]='starship'
-
-# WebSocat
-# https://github.com/vi/websocat
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='WebSocat'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/vi/websocat/releases/latest/download/websocat_max.x86_64-unknown-linux-musl'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=bin_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]=''
-TOOL_BIN_FILE["$idx"]=websocat
-
-# gotty
-# https://github.com/sorenisanerd/gotty
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='GoTTY'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/sorenisanerd/gotty/releases/latest/download/gotty_v1.5.0_linux_amd64.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='./gotty'
-TOOL_BIN_FILE["$idx"]=gotty
-
-# mcfly
-# https://github.com/cantino/mcfly
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='McFly'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/cantino/mcfly/releases/latest/download/mcfly-v0.8.1-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='mcfly'
-TOOL_BIN_FILE["$idx"]=mcfly
-
-# dust
-# https://github.com/bootandy/dust
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='Dust'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/bootandy/dust/releases/latest/download/dust-v0.8.6-x86_64-unknown-linux-musl.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='dust-v0.8.6-x86_64-unknown-linux-musl/dust'
-TOOL_BIN_FILE["$idx"]=dust
-
-# ncdu
-# https://dev.yorhel.nl/ncdu
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='Ncdu'
-TOOL_DOWNLOAD_URL["$idx"]='https://dev.yorhel.nl/download/ncdu-2.3-linux-x86_64.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='ncdu'
-TOOL_BIN_FILE["$idx"]=ncdu
-
-# 7zip
-# https://www.7-zip.org/
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='7-Zip'
-TOOL_DOWNLOAD_URL["$idx"]='https://www.7-zip.org/a/7z2301-linux-x64.tar.xz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=tarxz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='7zzs'
-TOOL_BIN_FILE["$idx"]=7zz
-
-# toml-cli
-# https://github.com/gnprice/toml-cli
-idx=${#TOOL_NAME[@]}
-TOOL_NAME["$idx"]='toml-cli'
-TOOL_DOWNLOAD_URL["$idx"]='https://github.com/gnprice/toml-cli/releases/latest/download/toml-0.2.3-x86_64-linux.tar.gz'
-TOOL_ARCHIVE_PROCESSOR["$idx"]=targz_extractor
-TOOL_BIN_FILE_IN_ARCHIVE["$idx"]='toml-0.2.3-x86_64-linux/toml'
-TOOL_BIN_FILE["$idx"]=toml
 
 # static build app ===========================================================================================
 
