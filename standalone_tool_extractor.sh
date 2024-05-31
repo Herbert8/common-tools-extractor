@@ -57,6 +57,17 @@ download() {
     fi
 }
 
+extract_name_from_uri() {
+    local uri=$1
+    local pattern=$2
+    # 如果 pattern 中 有 * 号，作为正则表达式使用
+    if [[ "$pattern" == *'*'* ]]; then
+        sed -nr "$pattern" <<< "$uri"
+    else # 否则作为字符串内容返回
+        echo "$pattern"
+    fi
+}
+
 gz_extractor() {
     local tool_name=$1
     local download_url=$2
@@ -70,6 +81,9 @@ targz_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
     download "$download_url" | tar -zxO "$tool_in_archive" >"$TOOLS_PATH/$tool_bin"
 }
 
@@ -78,6 +92,9 @@ tarbz_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
     download "$download_url" | tar -jxO "$tool_in_archive" >"$TOOLS_PATH/$tool_bin"
 }
 
@@ -86,6 +103,9 @@ tarxz_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
     download "$download_url" | tar -JxO "$tool_in_archive" >"$TOOLS_PATH/$tool_bin"
 }
 
@@ -94,6 +114,9 @@ zip_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
     download "$download_url" | funzip >"$TOOLS_PATH/$tool_bin"
 }
 
@@ -102,6 +125,9 @@ zipfile_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
     local zip_file
     zip_file=$(mktemp)
     download "$download_url" >"$zip_file" &&
@@ -114,6 +140,9 @@ bin_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
     download "$download_url" >"$TOOLS_PATH/$tool_bin"
 }
 
@@ -204,7 +233,7 @@ download_with_aria2() {
 
 main() {
     # 指定安装到的位置
-    TOOLS_PATH="$1"
+    TOOLS_PATH="${1:-}"
 
     if [[ ! -d "$TOOLS_PATH" ]]; then
         echo Destination folder does not exist.
