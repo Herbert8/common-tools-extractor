@@ -1,8 +1,9 @@
+
 # 7-Zip
 TOOL_NAME+=('7-Zip')
 TOOL_HOMEPAGE+=('https://www.7-zip.org/')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('')
-TOOL_DOWNLOAD_URL+=('https://www.7-zip.org/a/7z2301-linux-x64.tar.xz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('')
+TOOL_DOWNLOAD_URL+=('https://www.7-zip.org/a/7z2406-linux-x64.tar.xz')
 TOOL_ARCHIVE_PROCESSOR+=(tarxz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('7zzs')
 TOOL_BIN_FILE+=(7zz)
@@ -10,8 +11,8 @@ TOOL_BIN_FILE+=(7zz)
 # bandwhich
 TOOL_NAME+=('bandwhich')
 TOOL_HOMEPAGE+=('https://github.com/imsnif/bandwhich')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux-musl')
-TOOL_DOWNLOAD_URL+=('https://github.com/imsnif/bandwhich/releases/latest/download/bandwhich-v0.22.2-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux-musl')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('bandwhich')
 TOOL_BIN_FILE+=('bandwhich')
@@ -19,17 +20,17 @@ TOOL_BIN_FILE+=('bandwhich')
 # bat
 TOOL_NAME+=('bat')
 TOOL_HOMEPAGE+=('https://github.com/sharkdp/bat')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux-musl')
-TOOL_DOWNLOAD_URL+=('https://github.com/sharkdp/bat/releases/latest/download/bat-v0.24.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux-musl')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
-TOOL_BIN_FILE_IN_ARCHIVE+=('bat-v0.24.0-x86_64-unknown-linux-musl/bat')
+TOOL_BIN_FILE_IN_ARCHIVE+=('s|.*/(.*)\.tar\.gz|\1/bat|p')
 TOOL_BIN_FILE+=('bat')
 
 # Brook
 TOOL_NAME+=('Brook')
 TOOL_HOMEPAGE+=('https://github.com/txthinking/brook')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('')
-TOOL_DOWNLOAD_URL+=('https://github.com/txthinking/brook/releases/latest/download/brook_linux_amd64')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('brook_linux_amd64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(bin_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('linux_amd64')
 TOOL_BIN_FILE+=(brook)
@@ -37,8 +38,8 @@ TOOL_BIN_FILE+=(brook)
 # Broot
 TOOL_NAME+=('Broot')
 TOOL_HOMEPAGE+=('https://github.com/Canop/broot')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('')
-TOOL_DOWNLOAD_URL+=('https://github.com/Canop/broot/releases/latest/download/broot_1.38.0.zip')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(zipfile_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('x86_64-unknown-linux-musl/broot')
 TOOL_BIN_FILE+=('broot')
@@ -46,8 +47,8 @@ TOOL_BIN_FILE+=('broot')
 # btop
 TOOL_NAME+=('btop')
 TOOL_HOMEPAGE+=('https://github.com/aristocratos/btop')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux-musl')
-TOOL_DOWNLOAD_URL+=('https://github.com/aristocratos/btop/releases/latest/download/btop-x86_64-linux-musl.tbz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux-musl')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(tarbz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('./btop/bin/btop')
 TOOL_BIN_FILE+=('btop')
@@ -55,17 +56,18 @@ TOOL_BIN_FILE+=('btop')
 # uutils coreutils
 TOOL_NAME+=('uutils coreutils')
 TOOL_HOMEPAGE+=('https://github.com/uutils/coreutils')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux-musl')
-TOOL_DOWNLOAD_URL+=('https://github.com/uutils/coreutils/releases/latest/download/coreutils-0.0.26-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux-musl')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
-TOOL_BIN_FILE_IN_ARCHIVE+=('coreutils-0.0.26-x86_64-unknown-linux-musl/coreutils')
+# TOOL_BIN_FILE_IN_ARCHIVE+=('coreutils-0.0.26-x86_64-unknown-linux-musl/coreutils')
+TOOL_BIN_FILE_IN_ARCHIVE+=('s|.*/(.*)\.tar\.gz|\1/coreutils|p')
 TOOL_BIN_FILE+=('coreutils')
 
 # Curlie
 TOOL_NAME+=('Curlie')
 TOOL_HOMEPAGE+=('https://github.com/rs/curlie')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*amd64.*tar')
-TOOL_DOWNLOAD_URL+=('https://github.com/rs/curlie/releases/latest/download/curlie_1.7.2_linux_amd64.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux.*amd64.*tar')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('curlie')
 TOOL_BIN_FILE+=('curlie')
@@ -73,8 +75,8 @@ TOOL_BIN_FILE+=('curlie')
 # croc
 TOOL_NAME+=('croc')
 TOOL_HOMEPAGE+=('https://github.com/schollz/croc')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*64bit')
-TOOL_DOWNLOAD_URL+=('https://github.com/schollz/croc/releases/latest/download/croc_v9.6.15_Linux-64bit.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('Linux.*64bit')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('croc')
 TOOL_BIN_FILE+=(croc)
@@ -82,17 +84,18 @@ TOOL_BIN_FILE+=(croc)
 # delta
 TOOL_NAME+=('delta')
 TOOL_HOMEPAGE+=('https://github.com/dandavison/delta')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*musl')
-TOOL_DOWNLOAD_URL+=('https://github.com/dandavison/delta/releases/latest/download/delta-0.17.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux.*musl')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
-TOOL_BIN_FILE_IN_ARCHIVE+=('delta-0.17.0-x86_64-unknown-linux-musl/delta')
+# TOOL_BIN_FILE_IN_ARCHIVE+=('delta-0.17.0-x86_64-unknown-linux-musl/delta')
+TOOL_BIN_FILE_IN_ARCHIVE+=('s|.*/(.*)\.tar\.gz|\1/delta|p')
 TOOL_BIN_FILE+=('delta')
 
 # Dive
 TOOL_NAME+=('Dive')
 TOOL_HOMEPAGE+=('https://github.com/wagoodman/dive')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*amd64.*tar')
-TOOL_DOWNLOAD_URL+=('https://github.com/wagoodman/dive/releases/latest/download/dive_0.12.0_linux_amd64.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux.*amd64.*tar')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('dive')
 TOOL_BIN_FILE+=(dive)
@@ -100,7 +103,7 @@ TOOL_BIN_FILE+=(dive)
 # Docker Compose
 TOOL_NAME+=('Docker Compose')
 TOOL_HOMEPAGE+=('https://docs.docker.com/compose/install/')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('')
 TOOL_DOWNLOAD_URL+=('https://github.com/docker/compose/releases/latest/download/docker-compose-Linux-x86_64')
 TOOL_ARCHIVE_PROCESSOR+=(bin_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('')
@@ -109,8 +112,8 @@ TOOL_BIN_FILE+=(docker-compose)
 # duf
 TOOL_NAME+=('duf')
 TOOL_HOMEPAGE+=('https://github.com/muesli/duf')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*x86_64')
-TOOL_DOWNLOAD_URL+=('https://github.com/muesli/duf/releases/latest/download/duf_0.8.1_linux_x86_64.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux.*x86_64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('duf')
 TOOL_BIN_FILE+=('duf')
@@ -118,17 +121,18 @@ TOOL_BIN_FILE+=('duf')
 # Dust
 TOOL_NAME+=('Dust')
 TOOL_HOMEPAGE+=('https://github.com/bootandy/dust')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64linux.*musl')
-TOOL_DOWNLOAD_URL+=('https://github.com/bootandy/dust/releases/latest/download/dust-v1.0.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux.*musl')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
-TOOL_BIN_FILE_IN_ARCHIVE+=('dust-v1.0.0-x86_64-unknown-linux-musl/dust')
+# TOOL_BIN_FILE_IN_ARCHIVE+=('dust-v1.0.0-x86_64-unknown-linux-musl/dust')
+TOOL_BIN_FILE_IN_ARCHIVE+=('s|.*/(.*)\.tar\.gz|\1/dust|p')
 TOOL_BIN_FILE+=(dust)
 
 # exa
 TOOL_NAME+=('exa')
 TOOL_HOMEPAGE+=('https://github.com/ogham/exa')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*x86_64.*musl')
-TOOL_DOWNLOAD_URL+=('https://github.com/ogham/exa/releases/latest/download/exa-linux-x86_64-musl-v0.10.1.zip')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux.*x86_64.*musl')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(zipfile_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('bin/exa')
 TOOL_BIN_FILE+=('exa')
@@ -136,17 +140,18 @@ TOOL_BIN_FILE+=('exa')
 # fd
 TOOL_NAME+=('fd')
 TOOL_HOMEPAGE+=('https://github.com/sharkdp/fd')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux.*musl')
-TOOL_DOWNLOAD_URL+=('https://github.com/sharkdp/fd/releases/latest/download/fd-v10.1.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux.*musl')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
-TOOL_BIN_FILE_IN_ARCHIVE+=('fd-v10.1.0-x86_64-unknown-linux-musl/fd')
+# TOOL_BIN_FILE_IN_ARCHIVE+=('fd-v10.1.0-x86_64-unknown-linux-musl/fd')
+TOOL_BIN_FILE_IN_ARCHIVE+=('s|.*/(.*)\.tar\.gz|\1/fd|p')
 TOOL_BIN_FILE+=(fd)
 
 # fzf
 TOOL_NAME+=('fzf')
 TOOL_HOMEPAGE+=('https://github.com/junegunn/fzf')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*amd64')
-TOOL_DOWNLOAD_URL+=('https://github.com/junegunn/fzf/releases/latest/download/fzf-0.52.1-linux_amd64.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux.*amd64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('fzf')
 TOOL_BIN_FILE+=(fzf)
@@ -154,8 +159,8 @@ TOOL_BIN_FILE+=(fzf)
 # fx
 TOOL_NAME+=('fx')
 TOOL_HOMEPAGE+=('https://github.com/antonmedv/fx')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux_amd64')
-TOOL_DOWNLOAD_URL+=('https://github.com/antonmedv/fx/releases/latest/download/fx_linux_amd64')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux_amd64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(bin_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('')
 TOOL_BIN_FILE+=(fx)
@@ -163,8 +168,8 @@ TOOL_BIN_FILE+=(fx)
 # GitUI
 TOOL_NAME+=('GitUI')
 TOOL_HOMEPAGE+=('https://github.com/extrawurst/gitui')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*x86_64')
-TOOL_DOWNLOAD_URL+=('https://github.com/extrawurst/gitui/releases/latest/download/gitui-linux-x86_64.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux.*x86_64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('./gitui')
 TOOL_BIN_FILE+=(gitui)
@@ -172,8 +177,8 @@ TOOL_BIN_FILE+=(gitui)
 # GO Simple Tunnel
 TOOL_NAME+=('GO Simple Tunnel')
 TOOL_HOMEPAGE+=('https://github.com/ginuerzh/gost')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*amd64')
-TOOL_DOWNLOAD_URL+=('https://github.com/ginuerzh/gost/releases/latest/download/gost-linux-amd64-2.11.5.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux.*amd64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(gz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('')
 TOOL_BIN_FILE+=(gost)
@@ -181,8 +186,8 @@ TOOL_BIN_FILE+=(gost)
 # GoTTY
 TOOL_NAME+=('GoTTY')
 TOOL_HOMEPAGE+=('https://github.com/sorenisanerd/gotty')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux_amd64')
-TOOL_DOWNLOAD_URL+=('https://github.com/sorenisanerd/gotty/releases/latest/download/gotty_v1.5.0_linux_amd64.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux_amd64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('./gotty')
 TOOL_BIN_FILE+=(gotty)
@@ -190,8 +195,8 @@ TOOL_BIN_FILE+=(gotty)
 # GRV
 TOOL_NAME+=('GRV')
 TOOL_HOMEPAGE+=('https://github.com/rgburke/grv')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('')
-TOOL_DOWNLOAD_URL+=('https://github.com/rgburke/grv/releases/latest/download/grv_v0.3.2_linux64')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('grv.*linux64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(bin_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('linux64')
 TOOL_BIN_FILE+=(grv)
@@ -199,17 +204,18 @@ TOOL_BIN_FILE+=(grv)
 # hexyl
 TOOL_NAME+=('hexyl')
 TOOL_HOMEPAGE+=('https://github.com/sharkdp/hexyl')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux.*musl')
-TOOL_DOWNLOAD_URL+=('https://github.com/sharkdp/hexyl/releases/latest/download/hexyl-v0.14.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux.*musl')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
-TOOL_BIN_FILE_IN_ARCHIVE+=('hexyl-v0.14.0-x86_64-unknown-linux-musl/hexyl')
+# TOOL_BIN_FILE_IN_ARCHIVE+=('hexyl-v0.14.0-x86_64-unknown-linux-musl/hexyl')
+TOOL_BIN_FILE_IN_ARCHIVE+=('s|.*/(.*)\.tar\.gz|\1/hexyl|p')
 TOOL_BIN_FILE+=(hexyl)
 
 # lazydocker
 TOOL_NAME+=('lazydocker')
 TOOL_HOMEPAGE+=('https://github.com/jesseduffield/lazydocker')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*x86_64')
-TOOL_DOWNLOAD_URL+=('https://github.com/jesseduffield/lazydocker/releases/latest/download/lazydocker_0.23.1_Linux_x86_64.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('Linux.*x86_64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('lazydocker')
 TOOL_BIN_FILE+=(lazydocker)
@@ -217,8 +223,8 @@ TOOL_BIN_FILE+=(lazydocker)
 # LF
 TOOL_NAME+=('LF')
 TOOL_HOMEPAGE+=('https://github.com/gokcehan/lf')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*amd64')
-TOOL_DOWNLOAD_URL+=('https://github.com/gokcehan/lf/releases/latest/download/lf-linux-amd64.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux.*amd64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('lf')
 TOOL_BIN_FILE+=(lf)
@@ -226,17 +232,18 @@ TOOL_BIN_FILE+=(lf)
 # lnav
 TOOL_NAME+=('lnav')
 TOOL_HOMEPAGE+=('https://github.com/tstack/lnav')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux-musl-x86_64')
-TOOL_DOWNLOAD_URL+=('https://github.com/tstack/lnav/releases/latest/download/lnav-0.12.2-linux-musl-x86_64.zip')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux-musl-x86_64')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(zipfile_extractor)
-TOOL_BIN_FILE_IN_ARCHIVE+=('lnav-0.12.2/lnav')
+# TOOL_BIN_FILE_IN_ARCHIVE+=('lnav-0.12.2/lnav')
+TOOL_BIN_FILE_IN_ARCHIVE+=('s|.*/(.*)-linux-musl-x86_64.*|\1/lnav|p')
 TOOL_BIN_FILE+=(lnav)
 
 # McFly
 TOOL_NAME+=('McFly')
 TOOL_HOMEPAGE+=('https://github.com/cantino/mcfly')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux')
-TOOL_DOWNLOAD_URL+=('https://github.com/cantino/mcfly/releases/latest/download/mcfly-v0.8.6-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('mcfly')
 TOOL_BIN_FILE+=(mcfly)
@@ -244,8 +251,8 @@ TOOL_BIN_FILE+=(mcfly)
 # Ncdu
 TOOL_NAME+=('Ncdu')
 TOOL_HOMEPAGE+=('https://dev.yorhel.nl/ncdu')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('')
-TOOL_DOWNLOAD_URL+=('https://dev.yorhel.nl/download/ncdu-2.3-linux-x86_64.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('')
+TOOL_DOWNLOAD_URL+=('https://dev.yorhel.nl/download/ncdu-2.4-linux-x86_64.tar.gz')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('ncdu')
 TOOL_BIN_FILE+=(ncdu)
@@ -253,8 +260,8 @@ TOOL_BIN_FILE+=(ncdu)
 # procs
 TOOL_NAME+=('procs')
 TOOL_HOMEPAGE+=('https://github.com/dalance/procs')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64-linux')
-TOOL_DOWNLOAD_URL+=('https://github.com/dalance/procs/releases/latest/download/procs-v0.14.5-x86_64-linux.zip')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64-linux')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(zip_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('procs')
 TOOL_BIN_FILE+=(procs)
@@ -262,17 +269,18 @@ TOOL_BIN_FILE+=(procs)
 # ripgrep
 TOOL_NAME+=('ripgrep')
 TOOL_HOMEPAGE+=('https://github.com/BurntSushi/ripgrep')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux.*musl.*gz$')
-TOOL_DOWNLOAD_URL+=('https://github.com/BurntSushi/ripgrep/releases/latest/download/ripgrep-14.1.0-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux.*musl.*gz$')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
-TOOL_BIN_FILE_IN_ARCHIVE+=('ripgrep-14.1.0-x86_64-unknown-linux-musl/rg')
+# TOOL_BIN_FILE_IN_ARCHIVE+=('ripgrep-14.1.0-x86_64-unknown-linux-musl/rg')
+TOOL_BIN_FILE_IN_ARCHIVE+=('s|.*/(.*)\.tar\.gz|\1/rg|p')
 TOOL_BIN_FILE+=('rg')
 
 # Starship
 TOOL_NAME+=('Starship')
 TOOL_HOMEPAGE+=('https://github.com/starship/starship')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64-unknown-linux-musl.tar.gz$')
-TOOL_DOWNLOAD_URL+=('https://github.com/starship/starship/releases/latest/download/starship-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64-unknown-linux-musl.tar.gz$')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('starship')
 TOOL_BIN_FILE+=(starship)
@@ -280,17 +288,18 @@ TOOL_BIN_FILE+=(starship)
 # toml-cli
 TOOL_NAME+=('toml-cli')
 TOOL_HOMEPAGE+=('https://github.com/gnprice/toml-cli')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux')
-TOOL_DOWNLOAD_URL+=('https://github.com/gnprice/toml-cli/releases/latest/download/toml-0.2.3-x86_64-linux.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
-TOOL_BIN_FILE_IN_ARCHIVE+=('toml-0.2.3-x86_64-linux/toml')
+# TOOL_BIN_FILE_IN_ARCHIVE+=('toml-0.2.3-x86_64-linux/toml')
+TOOL_BIN_FILE_IN_ARCHIVE+=('s|.*/(.*)\.tar\.gz|\1/toml|p')
 TOOL_BIN_FILE+=(toml)
 
 # WebSocat
 TOOL_NAME+=('WebSocat')
 TOOL_HOMEPAGE+=('https://github.com/vi/websocat')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('websocat.x86_64.*linux')
-TOOL_DOWNLOAD_URL+=('https://github.com/vi/websocat/releases/latest/download/websocat_max.x86_64-unknown-linux-musl')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('websocat.x86_64.*linux')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(bin_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('')
 TOOL_BIN_FILE+=(websocat)
@@ -298,8 +307,8 @@ TOOL_BIN_FILE+=(websocat)
 # yq
 TOOL_NAME+=('yq')
 TOOL_HOMEPAGE+=('https://github.com/mikefarah/yq')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('linux.*amd64.*tar')
-TOOL_DOWNLOAD_URL+=('https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('linux.*amd64.*tar')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('./yq_linux_amd64')
 TOOL_BIN_FILE+=(yq)
@@ -307,8 +316,8 @@ TOOL_BIN_FILE+=(yq)
 # zellij
 TOOL_NAME+=('zellij')
 TOOL_HOMEPAGE+=('https://github.com/zellij-org/zellij')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux.*musl.*tar')
-TOOL_DOWNLOAD_URL+=('https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux.*musl.*tar*.gz')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('zellij')
 TOOL_BIN_FILE+=(zellij)
@@ -316,11 +325,24 @@ TOOL_BIN_FILE+=(zellij)
 # zoxide
 TOOL_NAME+=('zoxide')
 TOOL_HOMEPAGE+=('https://github.com/ajeetdsouza/zoxide')
-TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX=('x86_64.*linux.*musl')
-TOOL_DOWNLOAD_URL+=('https://github.com/ajeetdsouza/zoxide/releases/latest/download/zoxide-0.9.4-x86_64-unknown-linux-musl.tar.gz')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('x86_64.*linux.*musl')
+TOOL_DOWNLOAD_URL+=('')
 TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('zoxide')
 TOOL_BIN_FILE+=(zoxide)
+
+log() {
+    local timestamp
+    timestamp=$(gdate '+%Y-%m-%d %H:%M:%S.%3N')
+    echo -e "\033[1;92m[$timestamp] [${FUNCNAME[1]}:${BASH_LINENO[0]}]\033[0m" "$@" >&2
+}
+
+# 根据 工具 GitHub 首页，获取 所有者和仓库名
+get_github_owner_repo_from_homepage_url() {
+    # 仓库所在首页
+    local homepage_url=$1
+    sed -nr 's|.*github.com/(.*/.*)|\1|p' <<<"$homepage_url"
+}
 
 # Function: get_github_query_lastest_release_download_api_url
 # Description: 根据工具所在 GitHub 首页得到用于获取最新发布版本信息的 API 的 URL
@@ -332,8 +354,8 @@ get_github_query_lastest_release_download_api_url() {
     # 仓库所在首页
     local homepage_url=$1
     local owner_repo
-    # 生成查询 URL
-    owner_repo=$(gsed -nr 's/.*github.com\/(\S*\/\S*).*/\1/p' <<<"$homepage_url")
+    owner_repo=$(get_github_owner_repo_from_homepage_url "$homepage_url")
+    # echo "https://api.github.com/repos/${owner_repo}/releases/latest"
     echo "https://api.github.com/repos/${owner_repo}/releases/latest"
 }
 
@@ -351,15 +373,15 @@ get_download_url() {
 # Function: get_api_url_by_name
 # Description: 根据软件名称（GitHub首页地址的最后部分）得到获取信息的 API 的 URL
 # Parameters:
-#   $1 - 用于查询的 API 的 URL
-# Returns: 软件包 URL
-# Example: get_download_url 'https://api.github.com/repos/ginuerzh/gost/releases/latest'
-get_api_url_by_name () {
+#   $1 - 工具的名字
+# Returns: 获得这个工具查询相关信息的 API
+# Example: get_api_url_by_name gost
+get_api_url_by_name() {
     # 通过 工具在 GitHub 首页的地址，获取其名字
-    get_name_from_homepage_url () {
+    get_name_from_homepage_url() {
         local homepage_url=$1
         local tmp_name
-        tmp_name=$(gsed -nr 's/.*\/(\S*$)/\1/p' <<< "$homepage_url")
+        tmp_name=$(gsed -nr 's/.*\/(\S*$)/\1/p' <<<"$homepage_url")
         # 如果存在 / 则清除
         echo "${tmp_name//\//}"
     }
@@ -372,24 +394,122 @@ get_api_url_by_name () {
         # 通过软件主页地址，判断是否在 GitHub 上
         # 如果不在 GitHub 上则不处理
         # 如果名称不匹配也不处理
-        local hp_url=${TOOL_HOMEPAGE[i]}
-        if ! [[ "$hp_url" = *github* && $(get_name_from_homepage_url "$hp_url") == "$tool_name_to_find" ]]; then
+        local homepage_url=${TOOL_HOMEPAGE[i]}
+        if ! [[ "$homepage_url" = *github* && $(get_name_from_homepage_url "$homepage_url") == "$tool_name_to_find" ]]; then
             continue
         fi
 
         # 获取 API URL
-        get_github_query_lastest_release_download_api_url "${TOOL_HOMEPAGE[i]}"
+        get_github_query_lastest_release_download_api_url "${homepage_url}"
         break
     done
 }
 
-# clear
+clear
 
 # tool_name=$1
+# tool_name=gost
 
 # api_url=$(get_api_url_by_name "$tool_name")
 
-# get_download_url "$api_url"
+# all_download_url=$(get_download_url "$api_url")
+# echo "$all_download_url" | grep 'linux.*amd64'
+
+get_all_software_download_url() {
+
+    local github_download_url_list_file=$1
+    if [[ -f "$github_download_url_list_file" ]]; then
+        echo "File '$github_download_url_list_file' exists."
+        return 1
+    fi
+
+    # 创建/清理 文件
+    : > "$github_download_url_list_file"
+
+    # 软件列表中总数量
+    local count=${#TOOL_NAME[@]}
+
+    # 遍历列表中所有 GitHub 上的工具
+    for ((i = 0; i < count; i++)); do
+        # 通过软件主页地址，判断是否在 GitHub 上
+        # 如果不在 GitHub 上则不处理
+        # 如果名称不匹配也不处理
+        local homepage_url=${TOOL_HOMEPAGE[i]}
+        if ! [[ "$homepage_url" = *github* ]]; then
+            continue
+        fi
+
+        local owner_repo
+        owner_repo=$(get_github_owner_repo_from_homepage_url "${homepage_url}")
+
+        local api_url
+        api_url=$(get_github_query_lastest_release_download_api_url "${homepage_url}")
+
+        # 获取 API URL
+        local urls
+        urls=$(get_download_url "$api_url")
+
+        log "${TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX[i]}"
+        local download_url
+        download_url=$(grep "${TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX[i]}" <<< "$urls")
+
+        echo "$owner_repo=$download_url"
+        echo "$owner_repo=$download_url" >> "$github_download_url_list_file"
+
+        sleep 2
+    done
+}
+
+# get_all_software_download_url
+
+# api_url=$(get_api_url_by_name croc)
+# get_download_url "$api_url" #| grep 'x86_64.*linux.*musl'
+
+load_github_download_url_list() {
+
+    local github_download_url_list_file=$1
+
+    if ! [[ -f "$github_download_url_list_file" ]]; then
+        echo "File '$github_download_url_list_file' does not exist."
+        return 1
+    fi
+
+    # 通过文件加载数据
+    local all_url_data
+    all_url_data=$(< "$github_download_url_list_file")
+
+    # 软件列表中总数量
+    local count=${#TOOL_NAME[@]}
+
+    # 遍历列表中所有 GitHub 上的工具
+    for ((i = 0; i < count; i++)); do
+        # 通过软件主页地址，判断是否在 GitHub 上
+        # 如果不在 GitHub 上则不处理
+        # 如果名称不匹配也不处理
+        local homepage_url=${TOOL_HOMEPAGE[i]}
+        if ! [[ "$homepage_url" = *github* ]]; then
+            continue
+        fi
+
+        # 得到 账号/仓库
+        local owner_repo
+        owner_repo=$(get_github_owner_repo_from_homepage_url "${homepage_url}")
+
+        # 通过 账号/仓库 得到对应数据
+        local a_url_data
+        # 不存在则跳出本次循环
+        # 拿到一条 URL
+        a_url_data=$(grep "$owner_repo" <<< "$all_url_data") || continue
+
+        local download_url
+        download_url=$(cut -d '=' -f2 <<< "$a_url_data")
+
+        TOOL_DOWNLOAD_URL[i]=$download_url
+    done
+}
+
+
+load_github_download_url_list "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/github_download_url_list.txt"
 
 # webdav 已经不再鼓励使用，但还能用
 # https://github.com/hacdias/webdav
