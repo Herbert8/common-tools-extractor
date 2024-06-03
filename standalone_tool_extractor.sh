@@ -45,15 +45,26 @@ show_info() {
 
 # 进行下载
 download() {
-    local download_url
-    download_url="$1"
+    local package_uri
+    package_uri="$1"
     # 判断 url 是否以 / 开头
     # 如果以 / 开头，当做本地文件处理
     # 否则当做网络资源处理
-    if [[ "$download_url" == /* ]]; then
-        cat "$download_url"
+    if [[ "$package_uri" == /* ]]; then
+        cat "$package_uri"
     else
-        curl -fL "$download_url"
+        curl -fL "$package_uri"
+    fi
+}
+
+extract_name_from_uri() {
+    local uri=$1
+    local pattern=$2
+    # 如果 pattern 中 有 * 号，作为正则表达式使用
+    if [[ "$pattern" == *'*'* ]]; then
+        sed -nr "$pattern" <<< "$uri"
+    else # 否则作为字符串内容返回
+        echo "$pattern"
     fi
 }
 
@@ -70,7 +81,10 @@ targz_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
-    download "$download_url" | tar -zx "$tool_in_archive" -O >"$TOOLS_PATH/$tool_bin"
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
+    download "$download_url" | tar -zxO "$tool_in_archive" >"$TOOLS_PATH/$tool_bin"
 }
 
 tarbz_extractor() {
@@ -78,7 +92,10 @@ tarbz_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
-    download "$download_url" | tar -jx "$tool_in_archive" -O >"$TOOLS_PATH/$tool_bin"
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
+    download "$download_url" | tar -jxO "$tool_in_archive" >"$TOOLS_PATH/$tool_bin"
 }
 
 tarxz_extractor() {
@@ -86,7 +103,10 @@ tarxz_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
-    download "$download_url" | tar -Jx "$tool_in_archive" -O >"$TOOLS_PATH/$tool_bin"
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
+    download "$download_url" | tar -JxO "$tool_in_archive" >"$TOOLS_PATH/$tool_bin"
 }
 
 zip_extractor() {
@@ -94,6 +114,9 @@ zip_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
     download "$download_url" | funzip >"$TOOLS_PATH/$tool_bin"
 }
 
@@ -102,6 +125,9 @@ zipfile_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
     local zip_file
     zip_file=$(mktemp)
     download "$download_url" >"$zip_file" &&
@@ -114,6 +140,9 @@ bin_extractor() {
     local download_url=$2
     local tool_in_archive=$3
     local tool_bin=$4
+
+    tool_in_archive=$(extract_name_from_uri "$download_url" "$tool_in_archive")
+
     download "$download_url" >"$TOOLS_PATH/$tool_bin"
 }
 
@@ -172,11 +201,12 @@ run_extract() {
 
 download_with_aria2() {
     echo
-    # 下载列表
+    # 下载列表 文件名
     local download_list_file
-    download_list_file=$(base_dir)/download_list.txt
+    download_list_file=$(base_dir)/data/download_list.txt
+    # 清空下载列表
     : >"$download_list_file"
-    # 临时下载文件夹
+    # 创建临时下载文件夹
     local tmp_download_dir
     tmp_download_dir=$(base_dir)/tmp_download
     mkdir -p "$tmp_download_dir" || exit 1
@@ -185,19 +215,25 @@ download_with_aria2() {
     local tools_count=${#TOOL_NAME[@]}
     readonly tools_count
 
-    # 遍历生成下载文件列表
+    # 循环遍历下载项，生成下载文件列表
     for ((i = 0; i < "$tools_count"; i++)); do
+        # 将每个软件的下载地址存入 下载列表 文件
+        # 用于后续使用 araxis 下载
         echo "${TOOL_DOWNLOAD_URL[$i]}" >>"$download_list_file"
+        # 把 TOOL_DOWNLOAD_URL 中的内容更新为 下载后文件在本地磁盘的路径
+        # 这里是为了复用之前的代码：之前使用 cURL 下载后，抽取工具可执行文件
+        # 现在改为使用 aria2c 下载后，不在把下载地址传入解压函数，而是把本地文件传递给解压函数
         TOOL_DOWNLOAD_URL[i]=$tmp_download_dir/$(basename "${TOOL_DOWNLOAD_URL[i]}")
     done
 
+    # 开始使用 ariawc 进行下载
     all_proxy='' ALL_PROXY='' aria2c --console-log-level=error -c true -d "$tmp_download_dir" -i "$download_list_file"
 
 }
 
 main() {
     # 指定安装到的位置
-    TOOLS_PATH="$1"
+    TOOLS_PATH="${1:-}"
 
     if [[ ! -d "$TOOLS_PATH" ]]; then
         echo Destination folder does not exist.
