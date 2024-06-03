@@ -415,7 +415,7 @@ clear
 # all_download_url=$(get_download_url "$api_url")
 # echo "$all_download_url" | grep 'linux.*amd64'
 
-get_all_software_download_url() {
+get_all_github_software_download_url() {
 
     local github_download_url_list_file=$1
     if [[ -f "$github_download_url_list_file" ]]; then
@@ -460,7 +460,7 @@ get_all_software_download_url() {
     done
 }
 
-# get_all_software_download_url
+# get_all_github_software_download_url
 
 # api_url=$(get_api_url_by_name croc)
 # get_download_url "$api_url" #| grep 'x86_64.*linux.*musl'
@@ -509,7 +509,7 @@ load_github_download_url_list() {
 }
 
 
-load_github_download_url_list "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/github_download_url_list.txt"
+load_github_download_url_list "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/data/github_download_url_list.txt"
 
 # webdav 已经不再鼓励使用，但还能用
 # https://github.com/hacdias/webdav

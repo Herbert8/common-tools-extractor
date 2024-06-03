@@ -203,7 +203,7 @@ download_with_aria2() {
     echo
     # 下载列表 文件名
     local download_list_file
-    download_list_file=$(base_dir)/download_list.txt
+    download_list_file=$(base_dir)/data/download_list.txt
     # 清空下载列表
     : >"$download_list_file"
     # 创建临时下载文件夹
