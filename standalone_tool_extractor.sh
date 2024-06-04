@@ -62,7 +62,7 @@ extract_name_from_uri() {
     local pattern=$2
     # 如果 pattern 中 有 * 号，作为正则表达式使用
     if [[ "$pattern" == *'*'* ]]; then
-        sed -nr "$pattern" <<< "$uri"
+        sed -nr "$pattern" <<<"$uri"
     else # 否则作为字符串内容返回
         echo "$pattern"
     fi
@@ -231,6 +231,8 @@ download_with_aria2() {
 
 }
 
+
+
 main() {
     # 指定安装到的位置
     TOOLS_PATH="${1:-}"
@@ -272,6 +274,8 @@ main() {
     fi
 
     run_extract
+
+    bash "$(base_dir)/build_from_source.sh" "$TOOLS_PATH"
 
 }
 
