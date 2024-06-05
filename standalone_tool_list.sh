@@ -174,6 +174,15 @@ TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('./gitui')
 TOOL_BIN_FILE+=(gitui)
 
+# Glow
+TOOL_NAME+=('Glow')
+TOOL_HOMEPAGE+=('https://github.com/charmbracelet/glow')
+TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('glow_Linux_x86_64.*gz$')
+TOOL_DOWNLOAD_URL+=('')
+TOOL_ARCHIVE_PROCESSOR+=(targz_extractor)
+TOOL_BIN_FILE_IN_ARCHIVE+=('glow')
+TOOL_BIN_FILE+=(glow)
+
 # GO Simple Tunnel
 TOOL_NAME+=('GO Simple Tunnel')
 TOOL_HOMEPAGE+=('https://github.com/ginuerzh/gost')
