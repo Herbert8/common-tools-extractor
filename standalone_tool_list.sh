@@ -1,4 +1,3 @@
-
 # 7-Zip
 TOOL_NAME+=('7-Zip')
 TOOL_HOMEPAGE+=('https://www.7-zip.org/')
@@ -433,7 +432,7 @@ get_all_github_software_download_url() {
     fi
 
     # 创建/清理 文件
-    : > "$github_download_url_list_file"
+    : >"$github_download_url_list_file"
 
     # 软件列表中总数量
     local count=${#TOOL_NAME[@]}
@@ -458,12 +457,15 @@ get_all_github_software_download_url() {
         local urls
         urls=$(get_download_url "$api_url")
 
-        log "${TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX[i]}"
+        log "$homepage_url"
+        echo >&2 "API URL             = $api_url"
+        echo >&2 "All Dl URLs Command = curl -fsS '$api_url' | jq -r '.assets[] | .browser_download_url'"
+        echo >&2 "URL Filter          = ${TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX[i]}"
         local download_url
-        download_url=$(grep "${TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX[i]}" <<< "$urls")
+        download_url=$(grep "${TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX[i]}" <<<"$urls")
 
-        echo "$owner_repo=$download_url"
-        echo "$owner_repo=$download_url" >> "$github_download_url_list_file"
+        echo >&2 "Download Url        = $owner_repo=$download_url"
+        echo "$owner_repo=$download_url" >>"$github_download_url_list_file"
 
         sleep 2
     done
@@ -485,7 +487,7 @@ load_github_download_url_list() {
 
     # 通过文件加载数据
     local all_url_data
-    all_url_data=$(< "$github_download_url_list_file")
+    all_url_data=$(<"$github_download_url_list_file")
 
     # 软件列表中总数量
     local count=${#TOOL_NAME[@]}
@@ -508,15 +510,14 @@ load_github_download_url_list() {
         local a_url_data
         # 不存在则跳出本次循环
         # 拿到一条 URL
-        a_url_data=$(grep "$owner_repo" <<< "$all_url_data") || continue
+        a_url_data=$(grep "$owner_repo" <<<"$all_url_data") || continue
 
         local download_url
-        download_url=$(cut -d '=' -f2 <<< "$a_url_data")
+        download_url=$(cut -d '=' -f2 <<<"$a_url_data")
 
         TOOL_DOWNLOAD_URL[i]=$download_url
     done
 }
-
 
 load_github_download_url_list "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/data/github_download_url_list.txt"
 
