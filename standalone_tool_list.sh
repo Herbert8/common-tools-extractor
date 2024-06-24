@@ -2,7 +2,7 @@
 TOOL_NAME+=('7-Zip')
 TOOL_HOMEPAGE+=('https://www.7-zip.org/')
 TOOL_DOWNLOAD_URL_FILTER_PATTERN_LINUX+=('')
-TOOL_DOWNLOAD_URL+=('https://www.7-zip.org/a/7z2406-linux-x64.tar.xz')
+TOOL_DOWNLOAD_URL+=('https://www.7-zip.org/a/7z2407-linux-x64.tar.xz')
 TOOL_ARCHIVE_PROCESSOR+=(tarxz_extractor)
 TOOL_BIN_FILE_IN_ARCHIVE+=('7zzs')
 TOOL_BIN_FILE+=(7zz)
