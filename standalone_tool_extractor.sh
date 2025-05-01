@@ -255,7 +255,7 @@ download_and_extract() {
     source "$tool_list"
 
     # 根据之前通过 API 得到的下载地址，更新每个软件的下载地址
-    load_github_download_url_list "$(base_dir)/data/github_download_url_list_${arch}_latest.txt"
+    load_github_download_url_list "$(base_dir)/data/github_download_url_list_${arch}_latest.env"
 
     if command -v aria2c >/dev/null; then
         download_with_aria2 "$arch"

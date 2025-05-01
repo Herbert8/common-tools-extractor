@@ -19,5 +19,5 @@ parse_soft_list() {
 }
 
 
-parse_soft_list "$THIS_SCRIPT_DIR/standalone_tool_list_x86_64.env" "$THIS_SCRIPT_DIR/data/github_download_url_list_x86_64_latest.txt"
-parse_soft_list "$THIS_SCRIPT_DIR/standalone_tool_list_aarch64.env" "$THIS_SCRIPT_DIR/data/github_download_url_list_aarch64_latest.txt"
+parse_soft_list "$THIS_SCRIPT_DIR/standalone_tool_list_x86_64.env" "$THIS_SCRIPT_DIR/data/github_download_url_list_x86_64_latest.env"
+parse_soft_list "$THIS_SCRIPT_DIR/standalone_tool_list_aarch64.env" "$THIS_SCRIPT_DIR/data/github_download_url_list_aarch64_latest.env"

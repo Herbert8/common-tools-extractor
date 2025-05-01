@@ -6,8 +6,26 @@
 #       1、本文件用于解析这些地址，然后存储到指定列表（避免频繁调用 GitHub API），可以定期、不频繁地执行
 #       2、需要下载时，只要根据得到的列表下载、提取即可
 
-GITHUB_ACCESS_TOKEN=''
-readonly GITHUB_ACCESS_TOKEN
+BASE_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+readonly BASE_DIR
+
+# 本文件只用于 source，不直接运行
+if [[ "$0" == "${BASH_SOURCE[0]}" ]]; then
+    echo >&2 "This script is only for 'source'."
+    exit 1
+fi
+
+# 从文件读取 GITHUB_ACCESS_TOKEN
+# Token 获取
+#   https://github.com/settings/tokens
+#   https://github.com/settings/personal-access-tokens
+readonly GITHUB_ACCESS_TOKEN_FILE=$BASE_DIR/access_token.txt
+if [[ -r $GITHUB_ACCESS_TOKEN_FILE ]] && GITHUB_ACCESS_TOKEN=$(<"$GITHUB_ACCESS_TOKEN_FILE"); then
+    readonly GITHUB_ACCESS_TOKEN
+else
+    echo >&2 'Read Access Token error!'
+    exit 1
+fi
 
 log() {
     local timestamp
@@ -203,7 +221,6 @@ load_github_download_url_list() {
 
 # BASE_DIR=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
 # load_github_download_url_list "$BASE_DIR/data/github_download_url_list.txt"
-
 
 # webdav 已经不再鼓励使用，但还能用
 # https://github.com/hacdias/webdav
