@@ -200,15 +200,18 @@ run_extract() {
 }
 
 download_with_aria2() {
+
+    local arch=$1
+
     echo
     # 下载列表 文件名
     local download_list_file
-    download_list_file=$(base_dir)/data/download_list.txt
+    download_list_file=$(base_dir)/data/download_list_${arch}.txt
     # 清空下载列表
     : >"$download_list_file"
     # 创建临时下载文件夹
     local tmp_download_dir
-    tmp_download_dir=$(base_dir)/tmp_download
+    tmp_download_dir=$(base_dir)/tmp_download/${arch}
     mkdir -p "$tmp_download_dir" || exit 1
 
     # 下载软件数量
@@ -233,21 +236,49 @@ download_with_aria2() {
 
 
 
+download_and_extract() {
+
+    local tool_list=$1
+    local arch=$2
+
+    TOOLS_PATH=$ROOT_TOOLS_PATH/$arch
+
+    # 创建目录
+    mkdir -p "$TOOLS_PATH"
+
+    # 由于可能执行多次，所以要先清理掉之前加载的列表
+    clear_software_array_list
+
+    # 加载软件列表
+    echo "$tool_list"
+    # shellcheck source=/dev/null
+    source "$tool_list"
+
+    # 根据之前通过 API 得到的下载地址，更新每个软件的下载地址
+    load_github_download_url_list "$(base_dir)/data/github_download_url_list_${arch}_latest.env"
+
+    if command -v aria2c >/dev/null; then
+        download_with_aria2 "$arch"
+    fi
+
+    run_extract
+}
+
 main() {
     # 指定安装到的位置
-    TOOLS_PATH="${1:-}"
+    ROOT_TOOLS_PATH="${1:-}"
 
-    if [[ ! -d "$TOOLS_PATH" ]]; then
+    if [[ ! -d "$ROOT_TOOLS_PATH" ]]; then
         echo Destination folder does not exist.
         exit 1
     fi
 
-    TOOLS_PATH=$(cd "$TOOLS_PATH" && pwd)
-    readonly TOOLS_PATH
+    ROOT_TOOLS_PATH=$(cd "$ROOT_TOOLS_PATH" && pwd)
+    readonly ROOT_TOOLS_PATH
 
     echo
 
-    echo "Tools will be save to '$TOOLS_PATH'"
+    echo "Tools will be save to '$ROOT_TOOLS_PATH'"
 
     # 显示使用的代理信息
     echo
@@ -256,27 +287,15 @@ main() {
     echo "\$https_proxy = ${https_proxy-}"
     echo "\$no_proxy = ${no_proxy-}"
 
-    # 创建目录
-    mkdir -p "$TOOLS_PATH"
+    download_and_extract "$(base_dir)/standalone_tool_list_x86_64.env" x86_64 || :
+    download_and_extract "$(base_dir)/standalone_tool_list_aarch64.env" aarch64 || :
 
-    TOOL_NAME=()
-    TOOL_DOWNLOAD_URL=()
-    TOOL_ARCHIVE_PROCESSOR=()
-    TOOL_BIN_FILE_IN_ARCHIVE=()
-    TOOL_BIN_FILE=()
-
-    # 加载软件列表
-    echo "$(base_dir)/standalone_tool_list.sh"
-    source "$(base_dir)/standalone_tool_list.sh"
-
-    if command -v aria2c >/dev/null; then
-        download_with_aria2
-    fi
-
-    run_extract
-
-    bash "$(base_dir)/build_from_source.sh" "$TOOLS_PATH"
+    # bash "$(base_dir)/build_from_source.sh" "$TOOLS_PATH"
 
 }
+
+# 加载用于解析 软件清单 的处理库
+# shellcheck source=/dev/null
+source "$(base_dir)/list_processor_lib.sh"
 
 main "$@"
